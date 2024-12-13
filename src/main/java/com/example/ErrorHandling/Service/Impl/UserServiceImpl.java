@@ -69,16 +69,18 @@ public class UserServiceImpl implements UserService {
     public Page<UserResponse> findUserAndRole(String user, String role, Integer page , Integer size) {
         int pages = page - 1;
         Pageable pageable = PageRequest.of(pages, size);
-
+        System.out.println("Cek cok ");
         Specification<User> specification = ((root, query, criteriaBuilder) -> {
             List<Predicate> predicates = new ArrayList<>();
 
+            // Todo -> Ini kalau semisal butuh join
             Join<User , Role> roles = root.join("roleId");
-            System.out.println("hasil roles " + roles);
+
             if (user != null){
                 predicates.add(criteriaBuilder.like(criteriaBuilder.lower(root.get("name")), "%" + user.toLowerCase() + "%"));
             }
 
+            // Ini Harus Bener
             if (role != null){
                 predicates.add(criteriaBuilder.equal(roles.get("roleName") , role));
             }
