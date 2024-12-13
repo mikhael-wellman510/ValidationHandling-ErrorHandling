@@ -1,14 +1,15 @@
 package com.example.ErrorHandling.Service;
 
+
 import com.example.ErrorHandling.DTO.RoleRequest;
 import com.example.ErrorHandling.DTO.RoleResponse;
-import com.example.ErrorHandling.DTO.UserRequest;
 import com.example.ErrorHandling.DTO.UserResponse;
+import com.example.ErrorHandling.Entity.Role;
 import org.springframework.data.domain.Page;
 
-public interface UserService {
+public interface RoleService {
+    RoleResponse addRole(RoleRequest roleRequest);
 
-    UserResponse addUser(UserRequest userRequest);
-    Page<UserResponse> findUserAndRole(String user , String role , Integer page ,Integer size);
-
+    Role findRoleById(String roleId);
 }
+

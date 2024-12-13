@@ -39,5 +39,7 @@ public class UserRequest {
     @Size(min = 12 , max = 14 , message = "nomor hp tidak boleh kurang dari 12 dan 14")
     private String phoneNumber;
 
+    private String roleId;
+
 
 }

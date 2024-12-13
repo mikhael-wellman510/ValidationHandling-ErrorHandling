@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.*;
@@ -25,5 +26,12 @@ public class GlobalExceptionHandling {
             errMsg.put(((FieldError) error).getField() , error.getDefaultMessage());
         });
         return new ResponseEntity<>(errMsg, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(NoSuchElementException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ResponseEntity<?> handleNotFoundException(NoSuchElementException ex){
+
+        return new ResponseEntity<>("Data Tidak di temukan" , HttpStatus.NOT_FOUND);
     }
 }

@@ -8,6 +8,7 @@ public class ErrorHandlingApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ErrorHandlingApplication.class, args);
+		System.out.println("Running");
 	}
 
 }

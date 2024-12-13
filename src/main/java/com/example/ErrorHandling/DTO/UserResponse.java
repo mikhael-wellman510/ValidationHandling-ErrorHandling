@@ -10,6 +10,10 @@ import lombok.*;
 public class UserResponse {
     private String id;
     private String name;
+    private String hobby;
+    private Integer age;
     private String address;
     private String email;
+    private String phoneNumber;
+    private RoleResponse roleResponse;
 }
